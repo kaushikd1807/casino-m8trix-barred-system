@@ -1,0 +1,82 @@
+.login-page .card-login .card-title {
+	font-weight: normal;
+}
+.pagination > .page-item.active > a, .pagination > .page-item.active > a:focus, .pagination > .page-item.active > a:hover, .pagination > .page-item.active > span, .pagination > .page-item.active > span:focus, .pagination > .page-item.active > span:hover {
+	background-color: #4ea952;
+	border-color: #4ea952;
+}
+.theme-green .form-control, [data-color="green"] .is-focused .form-control {
+    background-image: linear-gradient(to top, #50aa54 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #50aa54 1px, rgba(210, 210, 210, 0) 1px);
+}
+.theme-green .form-check .form-check-label .circle .check {
+    background-color: #4caf50 !important;
+}
+.theme-green .form-check .form-check-input:checked ~ .circle {
+    border-color: #4caf50 !important;
+}
+.bootstrap-select .dropdown-toggle .filter-option {
+	padding: 0.4375rem 0;
+}
+.bootstrap-select > .dropdown-toggle {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.theme-green .bootstrap-select .dropdown-item.active {
+	background: #4caf50 !important;
+	background-color: #4caf50 !important;
+}
+.theme-green .dropdown-menu .dropdown-item:hover, .theme-green .dropdown-menu .dropdown-item:focus, .theme-green .dropdown-menu a:hover, .theme-green .dropdown-menu a:focus, .theme-green .dropdown-menu a:active {
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(50, 176, 39, 0.4) !important;
+    background-color: #4caf50 !important;
+}
+.theme-green .register-page .card-signup .form-check a {
+    color: #4caf50 !important;
+}
+.theme-green .form-check .form-check-input:checked ~ .form-check-sign .check {
+    background: #4caf50 !important;
+}
+.togglebutton label {
+    color: #AAAAAA !important;
+}
+.form-check-right .form-check-label span {
+    left: auto;
+    right: -1px;
+}
+.form-check-right .form-check-input {
+	display: none
+}
+.form-check-right .form-check-label {
+	padding-left: 0;
+	padding-right: 25px;
+}
+.bootstrap-tagsinput .bmd-form-group input[type="text"] {
+    cursor: pointer;
+	border-radius: 12px;
+	background-color: #00bcd4;
+	color: white;
+	width: 6em;
+	height: 22px;
+	padding: 0 5px;
+	position: relative;
+	top: 1px;
+}
+.bootstrap-tagsinput .bmd-form-group input[type="text"]::-webkit-input-placeholder { /* WebKit browsers */
+	color: white;
+	line-height: 1.5em;
+}
+.bootstrap-tagsinput .bmd-form-group input[type="text"]:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: white;
+	line-height: 1.5em;
+}
+.bootstrap-tagsinput .bmd-form-group input[type="text"]::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: white;
+	line-height: 1.5em;
+}
+.bootstrap-tagsinput .bmd-form-group input[type="text"]:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: white;
+	line-height: 1.5em;
+}
+.bootstrap-tagsinput .bmd-form-group input[type="text"]::placeholder {
+	color: white;
+	line-height: 1.5em;
+}

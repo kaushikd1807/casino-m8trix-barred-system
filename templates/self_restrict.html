@@ -1,0 +1,585 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+        {% block side_navbar %}
+            {% include 'side_navbar.html' %}
+        {% endblock %}
+
+    <!-- End of Page Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+
+
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="{% static 'img/undraw_profile_1.svg' %}" alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                            problem I've been having.</div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="{% static 'img/undraw_profile_2.svg' %}" alt="...">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">I have the photos that you ordered last month, how
+                                            would you like them sent to you?</div>
+                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="{% static 'img/undraw_profile_3.svg' %}" alt="...">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                            the progress so far, keep up the good work!</div>
+                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                            told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <img class="img-profile rounded-circle" src="{% static 'img/undraw_profile.svg' %}">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'user_logout' %}" data-toggle="modal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Self Restrict Form</h1>
+            <!--        <a href="/daily_missing_report" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">-->
+            <!--            <i class="fas fa-download fa-sm text-white-50"></i> Self Restrict Form-->
+            <!--        </a>-->
+                </div>
+                <div class="lead-alerts-container">
+                  <div class="alert alert-success " role="alert">
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+                            {% endfor %}
+                        </ul>
+                      {% endif %}
+                  </div>
+                </div>
+                <form id="new_restrict_form" method="POST" action ="{% if self_restrict.id %} {% url 'update_self_restrict' pk=self_restrict.id  %} {% else %} {% url 'save-data' %} {% endif %}">
+                    {% csrf_token %}
+                  <hr class="hr-text" data-content="Personal Information">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label for="first_name">Full Legal Name</label>
+                          <input type="text" name="first_name" placeholder="First" id="first_name" class="form-control" minlength="2" value="{{ self_restrict.first_name }}">
+                        </div>
+                        <div class="col-md-4">
+                          <label for="middle_name">&nbsp;</label>
+                          <input type="text" name="middle_name" placeholder="Middle (if Applicable)" id="middle_name" class="form-control" minlength="2" value="{{ self_restrict.middle_name }}">
+                        </div>
+                        <div class="col-md-4">
+                          <label for="last_name">&nbsp;</label>
+                          <input type="text" name="last_name" placeholder="Last" id="last_name" class="form-control" minlength="2" value="{{ self_restrict.last_name }}">
+                        </div>
+                      </div>
+
+                      <br>
+                      <div class="row">
+                        <div class="col-md-8">
+                          <label for="other_name">Other Name</label>
+                            <input type="text" name="other_name" placeholder="Other Names (i.e.. Former Names: Maiden names, Nicknames, or Aliases / A.K.A.'s)" id="other_name" class="form-control" minlength="2" value="{{ self_restrict.other_name }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" id="date" name="date" value="{{ self_restrict.date }}">
+                        </div>
+                      </div>
+
+            <!--      Home Address start-->
+                      <br>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label for="home_address">Home Address</label>
+                            <input type="text" name="home_address" placeholder="Home Address" id="home_address" class="form-control" minlength="2" value="{{ self_restrict.home_address }}">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <input type="text" name="home_street" placeholder="Street" id="home_address_street" class="form-control" minlength="2" value="{{ self_restrict.home_street }}">
+                        </div>
+                        <div class="col-md-3">
+                          <select name="home_city" id="home_address_city" class="form-control" value="{{ self_restrict.home_city }}">
+                            <option value="">--Select City--</option>
+                            <option value="delhi">Delhi</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="vadodara">Vadodara</option>
+                          </select>
+                        </div>
+                        <div class="col-md-3">
+                          <select name="home_state" id="home_address_state" class="form-control">
+                            <option value="">--Select State--</option>
+                            <option value="gujarat">Gujarat</option>
+                            <option value="punjab">Punjab</option>
+                            <option value="goa">Goa</option>
+                          </select>
+                        </div>
+                        <div class="col-md-3">
+                          <input type="text" name="home_zipcode" placeholder="Zip Code" id="home_address_zip_code" class="form-control" minlength="2" value="{{ self_restrict.home_zipcode }}">
+                        </div>
+                      </div>
+            <!--      Home Address end-->
+
+            <!--       Work Address start-->
+                      <br>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label for="work_address">Work Address</label>
+                            <input type="text" name="work_address" placeholder="Work Address" id="work_address" class="form-control" minlength="2">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <input type="text" name="work_street" placeholder="Street" id="work_street" class="form-control" minlength="2">
+                        </div>
+                        <div class="col-md-3">
+                          <select name="work_city" id="work_city" class="form-control">
+                            <option value="">--Select City--</option>
+                            <option value="delhi">Delhi</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="vadodara">Vadodara</option>
+                          </select>
+                        </div>
+                        <div class="col-md-3">
+                          <select name="work_state" id="work_state" class="form-control">
+                            <option value="">--Select State--</option>
+                            <option value="gujarat">Gujarat</option>
+                            <option value="punjab">Punjab</option>
+                            <option value="goa">Goa</option>
+                          </select>
+                        </div>
+                        <div class="col-md-3">
+                          <input type="text" name="work_zip_code" placeholder="Zip Code" id="work_zip_code" class="form-control" minlength="2">
+                        </div>
+                      </div>
+            <!--       Work Address end-->
+
+            <!--       Telephone section start-->
+                      <br>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <label for="home_telephone">Home Telephone Number:</label>
+                          <input type="text" name="home_telephone" placeholder="Home Telephone" id="home_telephone" class="form-control" minlength="2">
+                        </div>
+                        <div class="col-md-6">
+                          <label for="cell_telephone">Cell Telephone Number:</label>
+                          <input type="text" name="cell_telephone" placeholder="Cell Telephone" id="cell_telephone" class="form-control" minlength="2">
+                        </div>
+                      </div>
+            <!--       Telephone section end-->
+                    </div>
+                  </div>
+            <!--      Personal information section end-->
+
+            <!--      Restriction section start-->
+                  <br>
+                  <hr class="hr-text" data-content="Restriction">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="restrict_me">Please restrict me from Gaming (List games or ALL)</label>
+                      <input type="text" name="restrict_me" placeholder="Please restrict me from Gaming (List games or ALL):" id="restrict_me" class="form-control" minlength="2">
+                    </div>
+                  </div>
+
+                  <br>
+                  <div class="row">
+                    <div class="col-md-9">
+                      <label for="alcohol">Additional restriction</label>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="marketing_promotional">Additional deletion</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                        <input type="checkbox" name="alcohol" id="alcohol"> &nbsp;
+                        Alcohol
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="credit" id="credit">
+                        Credit
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="check_cashing" id="check_cashing">
+                        Check-Cashing
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="marketing_promotional" id="marketing_promotional"> &nbsp;
+                        Marketing/Promotional
+                    </div>
+                  </div>
+
+                  <br>
+                  <div class="row">
+                    <div class="col-md-9">
+                      <label for="alcohol">Total Exclusion Term:</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                        <input type="checkbox" name="30_days" id="30_days"> &nbsp;
+                        30 Days
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="60_days" id="60_days"> &nbsp;
+                        60 Days
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="90_days" id="90_days"> &nbsp;
+                        90 Days
+                    </div>
+                  </div>
+
+            <!--  Restriction section end-->
+
+            <!--     Photo And Visual Description start-->
+                  <br>
+                  <hr class="hr-text" data-content="Photo And Visual Description">
+                  <div class="row">
+                    <div class="col-md-4">
+                         <div class="row">
+                             <div class="col-md-12">
+                                <label for="">Gender</label>
+                            </div>
+                         </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="men">Male &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input type="radio" name="gender" id="men"> &nbsp;
+                            </div>
+                            <div class="col-md-6">
+                                <label for="female">Female &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input type="radio" name="gender" id="female"> &nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="dob">DOB</label>
+                        <input type="date" class="form-control" id="dob" name="dob">
+                    </div>
+                    <div class="col-md-4">
+                      <label for="last_name">Race/Ethnicity</label>
+                      <input type="text" name="race_ethnicity" placeholder="Race/Ethnicity" id="race_ethnicity" class="form-control" minlength="2">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label for="height">Height</label>
+                      <input type="text" name="height" placeholder="Height" id="height" class="form-control" minlength="2">
+                    </div>
+                    <div class="col-md-2">
+                      <label for="hair">Hair</label>
+                      <input type="text" name="hair" placeholder="Hair" id="hair" class="form-control" minlength="2">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="driver_license">Driver License</label>
+                      <input type="text" name="driver_license" placeholder="Driver License" id="driver_license" class="form-control" minlength="2">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label for="weight">Weight</label>
+                      <input type="text" name="weight" placeholder="Weight" id="weight" class="form-control" minlength="2">
+                    </div>
+                    <div class="col-md-2">
+                      <label for="eye">Eye</label>
+                      <input type="text" name="eye" placeholder="Eye" id="eye" class="form-control" minlength="2">
+                    </div>
+                    <div class="col-md-6">
+                      <h4>&nbsp;</h4>
+                      <h4 id="vehicle_information" class="text-center"><u>Vehicle Information</u></h4>
+                    </div>
+                  </div>
+
+                  <br>
+                  <div class="row">
+                    <div class="col-md-4">
+                        <label for=""></label>
+                        <textarea name="box_comment" id="box_comment" class="form-control" rows="6" minlength="2"></textarea>
+                    </div>
+                    <div class="col-md-8">
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <label for="vehicle_driven">Type of vehicle driven</label>
+                                  <input type="text" name="vehicle_driven" id="vehicle_driven" class="form-control" placeholder="">
+                              </div>
+                              <div class="col-md-6">
+                                  <label for="license_plate">License Plate</label>
+                                  <input type="text" name="license_plate" id="license_plate" class="form-control" placeholder="">
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <label for="distinguishing_marks">Distinguishing marks (i.e.. visible scars or tattoos - Describe mark and location)</label>
+                                  <input type="text" name="distinguishing_marks" id="distinguishing_marks" class="form-control" placeholder="">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+            <!--      Photo And Visual Description end-->
+
+            <!--  Declaration start-->
+                  <br>
+                  <hr class="hr-text" data-content="Declaration">
+                    <div class="row">
+                      <div class="col-md-12">
+                          <p>I understand English or have an interpreter to read and explain this form to me from:________________________________________________________________________________________________________________________________</p>
+                          <p>I understand that the ultimate responsibility to limit my access to Casino M8trix remain mine alone.</p>
+                          <p>I voluntarily seek to restrict myself as indicated in Section 2.</p>
+                          <br>
+                          <p>____________________________________________I agree that I will not attempt to enter and/or use any services or privileges of the Casino M8trix during the period checked in Section 2.</p>
+                          <p>____________________________________________I acknowledge and understand that should I attempt to enter the Casino M8trix or use the services of the Casino M8trix, once identified, I shall be escorted from the Casino M8trix.</p>
+                          <p>____________________________________________This self-restriction request is irrevocable during the time period checked in Section 2.</p>
+                          <br>
+                          <p>I understand that disclosure of certain information is necessary to affect my request for self-restriction. Disclosure may also occur if needed for the conduct of an official investigation or if ordered by a court of competent jurisdiction.</p>
+                          <br>
+                          <p>I will not seek to hold the Casino M8trix liable in any way should I enter the Casino M8trix and/or use any services or privileges therein despite this self-restriction request, and I agree to indemnify the State of California, the California Gaming Control Commission, the Division of Gaming Control and the Office of Problem Gambling for any liability relating to this request. Specifically, I for myself, my heirs, executers, administrators, successors, and assigns, hereby release for forever discharge the California Gaming Control Commission, the Division of Gaming Control and  the Office of Problem Gambling, the Casino M8trix, participating gambling facility, their agents, employees, officers, and Directors and those with whom they may lawfully share information regarding this restriction (collectively, the "Released Parties") from any and all claims in law or equity that I now have, or may have in the future, against all or may of all the Releases Parties arising out of, or any reason of, the performance of non-performance of this self-restriction request, or any matter relating to thereto. I further agree, in consideration to the Released Parties' efforts to implement my restriction, to indemnify and hold harmless the Released Parties to fullest extent permitted by law or any and all liabilities, judgments, damages, and expenses of any kind, including  reasonable attorneys' fee, resulting from or in connection with the performance or non-performance of the self-restriction requested herein.</p>
+                          <br>
+                          <p>I declare that all information submitted on or with this self-restriction form is true, correct, and complete.</p>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="signature">Signature</label>
+                      <input type="text" name="signature" placeholder="Signature" id="signature" class="form-control" minlength="2">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-8">
+                      <label for="print_name">Print Name</label>
+                      <input type="text" name="print_name" placeholder="Print Name" id="print_name" class="form-control" minlength="2">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="declaration_date">Date</label>
+                        <input type="date" class="form-control" id="declaration_date" name="declaration_date">
+                    </div>
+                  </div>
+            <!--  Declaration end-->
+
+            <!--  Witness start-->
+                  <br>
+                  <hr class="hr-text" data-content="Witness">
+                    <div class="row">
+                      <div class="col-md-12">
+                          <p>As a representative of the Casino M8trix, I affirm that on___________________________________________________________________________</p>
+                          <p>_____________________________________________________________________________________________________________________________</p>
+                          <p>___________________is personally know to me OR</p>
+                          <p>___________________provided to me on the basis of satisfactory evidence to be the person who appeared before me.</p>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="security_lead">Security Lead</label>
+                      <select name="security_lead" id="security_lead" class="form-control">
+                        <option value="">--Select Security Lead--</option>
+                        <option value="delhi">Security Admin</option>
+                        <option value="mumbai">Security</option>
+                        <option value="vadodara">Admin</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="shift_manager">Shift Manager</label>
+                      <select name="shift_manager" id="shift_manager" class="form-control">
+                        <option value="">--Select Shift Manager--</option>
+                        <option value="delhi">Security Admin</option>
+                        <option value="mumbai">Security</option>
+                        <option value="vadodara">Admin</option>
+                      </select>
+                    </div>
+                  </div>
+                  <br>
+            <!--  Witness end-->
+
+
+
+                <br>
+                <div class="row">
+                  <div class="col-md-12">
+                      <button type="submit" class="btn btn-primary btn-block">{% if self_restrict.id %} Edit {% else %} Save {% endif %} Self Restriction Form</button>
+                      <a href="/dashboard" class="btn btn-warning btn-block">Back</a>
+                  </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

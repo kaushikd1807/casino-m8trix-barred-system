@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {{ block.super }}
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-5 ml-auto mr-auto">
+              <div class="card card-profile">
+              <div class="card-avatar">
+                {% if user.profile_photo %}
+                <img class="img" src="{{user.profile_photo.url}}" alt="Profile Picture"/>
+                {% else %}
+                <img src="../../assets/img/default-avatar.png" class="picture-src" id="wizardPicturePreview" title="" />
+                {% endif %}
+              </div>
+              <div class="card-body">
+              <h4 class="card-title">{{user.first_name}} {{user.last_name}}</h4>
+                <br>
+              <div class="col-md-12 ml-auto mr-auto">
+                <h4 class="card-title">About Me</h4>
+                <p class="card-description">{{user.bio}}</p>
+              </div>
+            </div>
+              </div>
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col">
+              <div class="card">
+              <div class="card-header card-header-icon card-header-success">
+                <div class="card-icon">
+                <i class="material-icons">perm_identity</i>
+                </div>
+                <h4 class="card-title">Edit Profile -
+                <small class="category">Complete your profile</small>
+                </h4>
+              </div>
+
+                <br>
+                {% if messages %}
+                  {% for message in messages %}
+                  <h4 class="text-success text-center">{{message}}</h4>
+                  {% endfor %}
+                {% endif %}
+                <br>
+
+              <div class="card-body">
+                <div class="row">						
+                  <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Company</label>
+                    <input type="text" class="form-control" value="{{user.company}}" name="company" disabled/>
+                  </div>
+                  </div>
+                  <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">First Name</label>
+                    <input type="text" class="form-control" value="{{user.first_name}}" name="first_name" disabled/>
+                  </div>
+                  </div>
+                  <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Last Name</label>
+                    <input type="text" class="form-control" value="{{user.last_name}}" name="last_name" disabled/>
+                  </div>
+                  </div>
+                  <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Email address</label>
+                    <input type="email" class="form-control" value="{{user.email}}" name="email" disabled/>
+                  </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Realtor ID</label>
+                    <input type="text" class="form-control" value="{{user.realtor_id}}" name="realtor_id" disabled/>
+                  </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Country</label>
+                      <input type="text" class="form-control" value="{{user.country}}" disabled/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Brokerage</label>
+                    <input type="text" class="form-control" value="{{user.brokerage.name}}" name="brokerage" disabled/>
+                  </div>
+                  </div>
+                  <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Certifications</label>
+                    <input type="text" class="form-control" value="{{user.certifications}}" name="certifications" disabled/>
+                  </div>
+                  </div>
+                  <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Phone</label>
+                    <input type="text" class="form-control" value="{{user.phone}}" name="phone" disabled/>
+                  </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Brokerage Address</label>
+                    <input type="text" class="form-control" value="{{user.brokerage.address1}}" name="address1" disabled/>
+                  </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+            </div>
+          </div>
+{% endblock %}

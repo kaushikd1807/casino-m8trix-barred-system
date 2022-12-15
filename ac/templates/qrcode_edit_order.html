@@ -1,0 +1,810 @@
+
+<!--
+=========================================================
+Material Dashboard PRO - v2.2.2
+=========================================================
+
+Product Page: https://www.creative-tim.com/product/material-dashboard-pro
+Copyright 2020 Creative Tim (https://www.creative-tim.com)
+Coded by Creative Tim
+
+=========================================================
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Assured Close
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="/assets/css/material-dashboard.css?v=2.2.2" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="/assets/demo/demo.css" rel="stylesheet" />
+  <link href="/assets/css/custom_theme.css" rel="stylesheet" />
+   <script src="/assets/js/plugins/dropzone.min.js"></script>
+</head>
+
+<body class="sidebar-mini">
+    <div class="main-panel">
+      <div class="content">
+        <div class="container-fluid">
+
+          <div class="row">
+              <div class="col-md-2 ml-auto mr-auto">
+                    <div class="card-text">
+                      <h3 class="card-title text-success" style="font-weight: bold;">ORDER VIEW</h3>
+                    </div>
+                  </div>
+            </div>
+
+          <form method="POST" action="{% url 'order_edited' pk=order.pk %}" id="TypeValidation">
+            {% csrf_token %}
+            <br>
+                {% if messages %}
+                  {% for message in messages %}
+                  <h4 class="text-success text-center">{{message}}</h4>
+                  {% endfor %}
+                {% endif %}
+                <br>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card card-equal">
+                  <div class="card-header card-header-text card-header-success">
+                  <div class="card-text">
+                    <h4 class="card-title">Agent</h4>
+                  </div>
+                  </div>
+                  <div class="card-body form-inline">
+                    <div class="form-row">
+                    <div class="col-6">
+                      <label><span class="pr-0">Brokerage:&nbsp;</span><input type="text" class="form-control" value="{{order.agent.brokerage.name}}" name="agent_brokerage_name" disabled/></label>
+                    </div>
+                    <div class="col-6">
+                      <label><span class="pl-0">Phone:&nbsp;</span><input type="text" class="form-control" value="{{order.agent.phone}}" name="agent_phone" disabled/></label>
+                    </div>
+                    </div>
+                    <div class="form-row">
+                    <div class="col-6">
+                      <label><span class="pr-0">Realtor ID:&nbsp;</span><input type="text" class="form-control" value="{{order.agent.brokerage.realtor_id}}" name="agent_realtor_id" disabled/></label>
+                    </div>
+                    <div class="col-6">
+                      <label><span class="pl-0">Email:&nbsp;</span><input type="email" class="form-control" value="{{order.agent.email}}" name="agent_email" disabled/></label>
+                    </div>
+                    </div>
+                    <div class="form-row">
+                    <div class="col">
+                      <label><span class="pr-0">Company Name:&nbsp;</span><input type="text" class="form-control" value="{{order.agent.brokerage.company}}" name="agent_company_name" disabled/></label>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card card-equal">
+                  <div class="card-header card-header-text card-header-success">
+                  <div class="card-text">
+                    <h4 class="card-title">Customer</h4>
+                  </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="form-group form-inline">
+                      <div class="form-row">
+                      <div class="col">
+                        <label><span class="pr-0">Name:&nbsp;</span><input type="text" class="form-control" value="{{order.customer.first_name}}" name="customer_name" disabled/></label>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="form-group form-inline">
+                      <div class="form-row">
+                      <div class="col">
+                        <label><span class="pl-0">Email:&nbsp;</span><input type="email" class="form-control" value="{{order.customer.email}}" name="customer_email" disabled/></label>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="form-group form-inline">
+                      <div class="form-row">
+                      <div class="col">
+                        <label><span class="pl-0">Phone:&nbsp;</span><input type="text" class="form-control" value="{{order.customer.phone}}" name="customer_phone" disabled/></label>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card card-equal">
+                  <div class="card-header card-header-text card-header-success">
+                  <div class="card-text">
+                    <h4 class="card-title">Property</h4>
+                  </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="form-group form-inline">
+                      <div class="form-row">
+                      <div class="col">
+                        <label><span class="pr-0">MLS ID:&nbsp;</span><input type="text" class="form-control" value="{{order.mls_id}}" name="mls_id" number="true" required/></label>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="form-group form-inline">
+                      <div class="form-row">
+                      <div class="col">
+                        <label><span class="pl-0">MLS URL:&nbsp;</span><input type="text" class="form-control" value="{{order.listing_url}}" name="listing_url" url="true"/></label>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="form-group form-inline">
+                      <div class="form-row">
+                      <div class="col">
+                        <label><span class="pr-0">Address 1:&nbsp;</span><input type="text" class="form-control property_address_component_input" value="{{order.address1}}" name="property_address1" /></label>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="form-group form-inline">
+                      <div class="form-row">
+                      <div class="col">
+                        <label><span class="pr-0">Address 2:&nbsp;</span><input type="text" class="form-control" value="{{order.address2}}" name="property_address2" /></label>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="form-group form-inline">
+                      <div class="form-row">
+                      <div class="col">
+                        <label><span class="pr-0">City:&nbsp;</span><input type="text" class="form-control property_address_component_input" value="{{order.city}}" name="property_city" /></label>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="form-group form-inline">
+                      <div class="form-row">
+                      <div class="col">
+                        <label><span class="pr-0">State:&nbsp;</span><input type="text" class="form-control property_address_component_input" value="{{order.state}}" name="property_state" /></label>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="form-group form-inline">
+                      <div class="form-row">
+                      <div class="col">
+                        <label><span class="pr-0">ZIP:&nbsp;</span><input type="text" class="form-control property_address_component_input" value="{{order.zip_code}}" name="property_zip_code" /></label>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="form-group form-inline">
+                      <div class="form-row">
+                      <div class="col">
+                        <label><span class="pr-0">Country:&nbsp;</span><input type="text" class="form-control property_address_component_input" value="{{order.country}}" name="property_country" /></label>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card card-equal">
+                  <div class="card-header card-header-text card-header-success">
+                  <div class="card-text">
+                    <h4 class="card-title">Status</h4>
+                  </div>
+                  </div>
+                  <div class="card-body">
+
+                  <ul class="timeline">
+                    <li class="timeline-inverted">
+                      <div class="timeline-badge info">
+                        <i class="material-icons">card_travel</i>
+                      </div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <span class="badge badge-pill badge-info">Down Payment</span>
+                        </div>
+                        <div class="timeline-body">
+                          <p>Down Payment</p>
+                        </div>
+                        <h6>
+                          <i class="ti-time"></i> 11 hours ago
+                        </h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="timeline-badge primary">
+                        <i class="material-icons">extension</i>
+                      </div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <span class="badge badge-pill badge-primary">Escrow</span>
+                        </div>
+                        <div class="timeline-body">
+                          <p>Escrow</p>
+                        </div>
+                        <h6>
+                          <i class="ti-time"></i> Today
+                        </h6>
+                      </div>
+                    </li>
+                  </ul>
+                    <div class="form-group form-inline">
+                    <div class="form-row">
+                    <div class="col">
+                      <button type="button" class="btn btn-success btn">Pay</button>
+                    </div>
+                    </div>
+                  </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card card-equal">
+                  <div class="card-header card-header-text card-header-success">
+                    <div class="card-text">
+                    <h4 class="card-title">Google View</h4>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="map">
+                      <div id="google_view" class="map"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card card-equal">
+                  <div class="card-header card-header-text card-header-success">
+                  <div class="card-text">
+                    <h4 class="card-title">Provisions</h4>
+                  </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="col">
+                        <h4 class="card-header">Order Qr Code</h4>
+                        <img src="{{order.qr_code}}" alt="qr_code">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card card-equal">
+                <div class="card-header card-header-text card-header-success">
+                  <div class="card-text">
+                  <h4 class="card-title">Notes</h4>
+                  </div>
+                </div>
+                <div class="card-body ">
+                  <textarea style="width: 100%; height: 280px !important;" name="agent_notes">{{order.agent_notes}}</textarea>
+                </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card card-equal">
+                  <div class="card-header card-header-text card-header-success">
+                  <div class="card-text">
+                    <h4 class="card-title">Documents</h4>
+                  </div>
+                  </div>
+                  <div class="card-body">
+                  <div class="card">
+
+<!--                   <input type="file" multiple-->
+<!--                          name="file"-->
+<!--                          id="file"-->
+<!--                          onchange="javascript:updateList()" />-->
+<!--                      <p>Selected files:</p>-->
+<!--                    <div id="fileList"></div>-->
+                  </div>
+
+                    <ul>
+                      {% for document in documents %}
+                      <a href="{{document.document_file.url}}" target="_blank"><li>{{document}}</li></a>
+                      <div class="form-check mr-auto">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value={{document.shared}} name="shared_status" />
+                        Shared
+                        <span class="form-check-sign">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                    </div>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              </div>
+<!--              <div class="row">-->
+<!--                <div class="col-md-6">-->
+<!--                    <button class="btn btn-success pull-right"><a style="color:white" href="{% url 'order_delete' pk=order.pk %}">Delete</a></button>-->
+<!--                  </div>-->
+<!--                  <div class="col-md-6">-->
+<!--                    <input type="submit" class="btn btn-success" value="Save">-->
+<!--                  </div>-->
+<!--              </div>-->
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="/assets/js/core/jquery.min.js"></script>
+  <script src="/assets/js/core/popper.min.js"></script>
+  <script src="/assets/js/core/bootstrap-material-design.min.js"></script>
+  <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <!-- Plugin for the momentJs  -->
+  <script src="/assets/js/plugins/moment.min.js"></script>
+  <!--  Plugin for Sweet Alert -->
+  <script src="/assets/js/plugins/sweetalert2.js"></script>
+  <!-- Forms Validations Plugin -->
+  <script src="/assets/js/plugins/jquery.validate.min.js"></script>
+  <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+  <script src="/assets/js/plugins/jquery.bootstrap-wizard.js"></script>
+  <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+  <script src="/assets/js/plugins/bootstrap-selectpicker.js"></script>
+  <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+  <script src="/assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+  <script src="/assets/js/plugins/jquery.dataTables.min.js"></script>
+  <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+  <script src="/assets/js/plugins/bootstrap-tagsinput.js"></script>
+  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+  <script src="/assets/js/plugins/jasny-bootstrap.min.js"></script>
+  <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+  <script src="/assets/js/plugins/fullcalendar.min.js"></script>
+  <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+  <script src="/assets/js/plugins/jquery-jvectormap.js"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="/assets/js/plugins/nouislider.min.js"></script>
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <!-- Library for adding dinamically elements -->
+  <script src="/assets/js/plugins/arrive.min.js"></script>
+  <!-- Chartist JS -->
+  <script src="/assets/js/plugins/chartist.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="/assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="/assets/js/material-dashboard.js?v=2.2.2" type="text/javascript"></script>
+  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+
+  <script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+
+        window_width = $(window).width();
+
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+          if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+            $('.fixed-plugin .dropdown').addClass('open');
+          }
+
+        }
+
+        $('.fixed-plugin a').click(function(event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .active-color span').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .background-color .badge').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('background-color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .img-holder').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
+
+
+          var new_image = $(this).find("img").attr('src');
+
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
+
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $full_page_background.fadeOut('fast', function() {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
+
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        });
+
+        $('.switch-sidebar-image input').change(function() {
+          $full_page_background = $('.full-page-background');
+
+          $input = $(this);
+
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
+          }
+        });
+
+        $('.switch-sidebar-mini input').change(function() {
+          $body = $('body');
+
+          $input = $(this);
+
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
+
+            if ($(".sidebar").length != 0) {
+              var ps = new PerfectScrollbar('.sidebar');
+            }
+            if ($(".sidebar-wrapper").length != 0) {
+              var ps1 = new PerfectScrollbar('.sidebar-wrapper');
+            }
+            if ($(".main-panel").length != 0) {
+              var ps2 = new PerfectScrollbar('.main-panel');
+            }
+            if ($(".main").length != 0) {
+              var ps3 = new PerfectScrollbar('main');
+            }
+
+          } else {
+
+            if ($(".sidebar").length != 0) {
+              var ps = new PerfectScrollbar('.sidebar');
+              ps.destroy();
+            }
+            if ($(".sidebar-wrapper").length != 0) {
+              var ps1 = new PerfectScrollbar('.sidebar-wrapper');
+              ps1.destroy();
+            }
+            if ($(".main-panel").length != 0) {
+              var ps2 = new PerfectScrollbar('.main-panel');
+              ps2.destroy();
+            }
+            if ($(".main").length != 0) {
+              var ps3 = new PerfectScrollbar('main');
+              ps3.destroy();
+            }
+
+
+            setTimeout(function() {
+              $('body').addClass('sidebar-mini');
+
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
+		  
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      });
+	  $(window).resize(function() {
+		  setTimeout(function() {
+			make_cards_equal_height();
+		  }, 500);
+	  });
+	  $('.property_address_component_input').change(function() {
+		  map_set();
+	  });
+	  $('.bootstrap-tagsinput .bmd-form-group input[type="text"]').attr('placeholder', 'Click to add');
+	  make_cards_equal_height();
+	});
+	
+	var map, map_markers = [];
+	
+	function map_init() {
+		var loc = new google.maps.LatLng(0, 0);
+		map = new google.maps.Map(document.getElementById('google_view'), {
+			center: loc,
+			zoom: 9,
+			scrollwheel: false
+		});
+	}
+
+updateList = function() {
+    var input = document.getElementById('file');
+    var output = document.getElementById('fileList');
+    var children = "";
+    for (var i = 0; i < input.files.length; ++i) {
+        children += '<li>' + input.files.item(i).name + '</li>';
+    }
+    output.innerHTML = '<ul>'+children+'</ul>';
+}
+
+Dropzone.autoDiscover = false;
+      var drop = document.getElementById('dropzone')
+      var myDropzone = new Dropzone(drop, {
+        url: "/file/post",
+        addRemoveLinks: true
+
+      });
+	
+	function map_remove_markers() {
+		for(var i = 0; i < map_markers.length; i++) {
+			map_markers[i].setMap(null);
+		}
+		map_markers = [];
+	}
+	
+	function map_set() {
+		var address = '';
+		if($.trim($('[name="address1"]').val()).length > 0) {
+			address += $.trim($('[name="address1"]').val());
+		}
+		if($.trim($('[name="city"]').val()).length > 0) {
+			if(address.length > 0) {
+				address += ', ';
+			}
+			address += $.trim($('[name="city"]').val());
+		}
+		if($.trim($('[name="zip_code"]').val()).length > 0) {
+			if(address.length > 0) {
+				address += ', ';
+			}
+			address += $.trim($('[name="zip_code"]').val());
+		}
+		if($.trim($('[name="state"]').val()).length > 0) {
+			if(address.length > 0) {
+				address += ', ';
+			}
+			address += $.trim($('[name="state"]').val());
+		}
+		if($.trim($('[name="country"]').val()).length > 0) {
+			if(address.length > 0) {
+				address += ', ';
+			}
+			address += $.trim($('[name="country"]').val());
+		}
+		map_remove_markers();
+		if(address.length < 2) {
+			return;
+		}
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode({'address': address}, function(results, status) {
+			if(status == google.maps.GeocoderStatus.OK) {
+				map.setCenter(results[0].geometry.location);
+				var marker = new google.maps.Marker({
+					map: map,
+					position: results[0].geometry.location
+				});
+				marker.setMap(map);
+				map_markers.push(marker)
+			}
+			// else {
+			// 	 alert('Geocode was not successful for the following reason: ' + status);
+			// }
+		});
+	}
+	
+	function make_cards_equal_height() {
+		console.log('make_cards_equal_height() called');
+		var rows = $('.row');
+		for(var i = 0; i < rows.length; i++) {
+			var cards = $(rows[i]).find('> div .card-equal');
+			for(var j = 0; j < cards.length; j++) {
+				$(cards[j]).css('height', 'auto');
+			}
+			var cards_max_height = 0;
+			for(var j = 0; j < cards.length; j++) {
+				cards_max_height = Math.max(cards_max_height, $(cards[j]).height());
+			}
+			if(cards_max_height > 0) {
+				for(var j = 0; j < cards.length; j++) {
+					$(cards[j]).css('height', Math.round(cards_max_height)+'px');
+				}
+			}
+		}
+	}
+  </script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk_DeUT_-eF6O_ufsLqvcMOj92xdCHVyM&callback=map_init"></script>
+  <!-- Datatables plugin -->
+    <script>
+    $(document).ready(function() {
+      $('#datatables').DataTable({
+        "pagingType": "full_numbers",
+        "lengthMenu": [
+          [10, 25, 50, -1],
+          [10, 25, 50, "All"]
+        ],
+        responsive: true,
+        language: {
+          search: "",
+          searchPlaceholder: "Search records",
+        }
+      });
+
+      var table = $('#datatables').DataTable();
+
+      // Edit record
+
+      table.on('click', '.edit', function() {
+        $tr = $(this).closest('tr');
+
+        if ($($tr).hasClass('child')) {
+          $tr = $tr.prev('.parent');
+        }
+
+        var data = table.row($tr).data();
+        alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
+      });
+
+      // Delete a record
+
+      table.on('click', '.remove', function(e) {
+        $tr = $(this).closest('tr');
+
+        if ($($tr).hasClass('child')) {
+          $tr = $tr.prev('.parent');
+        }
+
+        table.row($tr).remove().draw();
+        e.preventDefault();
+      });
+
+      //Like record
+
+      table.on('click', '.like', function() {
+        alert('You clicked on Like button');
+      });
+    });
+	function table_cells_resize(table) {
+		table = $(table);
+		var percents = [3, 6, 15, 6, 12, 12, 12, 17, 17];
+		var rows = $(table).find('tbody tr');
+		for(var i = 0; i < rows.length; i++) {
+			var cols = $(rows[i]).find('td');
+			for(var j = 0; j < cols.length; j++) {
+				if(j < percents.length) {
+					$(cols[j]).css('width', Math.round($(table).width() * percents[j] / 100) + 'px');
+					$(cols[j]).css('overflow', 'hidden');
+					$(cols[j]).css('text-overflow', 'ellipsis');
+				}
+			}
+		}
+		add_tooltips(table);
+	}
+	function add_tooltips(table) {
+		table = $(table);
+		$(table).find('[data-toggle="tooltip"]').tooltip('dispose');
+		var cols = $(table).find('td');
+		for(var i = 0; i < cols.length; i++) {
+			if(cols[i].offsetWidth < cols[i].scrollWidth) {
+				$(cols[i]).attr('data-toggle', 'tooltip');
+				$(cols[i]).attr('data-placement', 'top');
+				$(cols[i]).attr('title', $.trim($(cols[i]).text()));
+			}
+		}
+		$(table).find('[data-toggle="tooltip"]').tooltip();
+	}
+	table_cells_resize('#datatables');
+	setTimeout(function() {table_cells_resize('#datatables');}, 500);
+	$(window).resize(function() {table_cells_resize('#datatables');});
+  </script>
+
+<!--  Form validation script-->
+  <script>
+    function setFormValidation(id) {
+      $(id).validate({
+        highlight: function(element) {
+          $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+          $(element).closest('.form-check').removeClass('has-success').addClass('has-danger');
+        },
+        success: function(element) {
+          $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+          $(element).closest('.form-check').removeClass('has-danger').addClass('has-success');
+        },
+        errorPlacement: function(error, element) {
+          $(element).closest('.form-group').append(error);
+        },
+      });
+    }
+
+    $(document).ready(function() {
+      setFormValidation('#RegisterValidation');
+      setFormValidation('#TypeValidation');
+      setFormValidation('#LoginValidation');
+      setFormValidation('#RangeValidation');
+    });
+  </script>
+
+</body>
+
+</html>

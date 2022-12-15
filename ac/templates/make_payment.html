@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {{ block.super }}
+          <div class="row">
+            <div class="col-7 mx-auto">
+              <div class="card card-pricing card-raised">
+                        <div class="card-body">
+                          <h6 class="card-category">You're Almost There!</h6>
+                          <div class="card-icon icon-success">
+                            <i class="material-icons">home</i>
+                          </div>
+                          
+                          <p class="card-description">
+                            You are about to be securely redirected to our Payment Processor, Stripe.<br />
+                            Click "Confirm" to .continue
+                          </p>
+                          <a href="https://stripe-payments-demo.appspot.com/" class="btn btn-success btn-round">Confirm<div class="ripple-container"></div></a>
+                        </div>
+                      </div>
+            </div>
+          </div>
+{% endblock %}
